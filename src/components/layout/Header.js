@@ -12,7 +12,7 @@ const Header = () => {
         <div>
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <button type="button" class="btn btn-danger">
+              <button type="button" className="btn btn-danger">
                 {" "}
                 Create a Meme
               </button>
