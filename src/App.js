@@ -7,31 +7,26 @@ import MemeCards from "./components/layout/MemeCards";
 import { render } from "@testing-library/react";
 import { useDispatch } from "react-redux";
 import { getMemes } from "./actions/meme";
+import MemeCard from "./components/layout/MemeCard";
 
-function Home() {
+function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMemes());
   }, [dispatch]);
 
   return (
-    <div className="App">
-      <Header />
-      <div className="container">
-        <Create />
-        <MemeCards />
-      </div>
-    </div>
-  );
-}
-
-function App() {
-  return (
     <Router>
+      <Header />
       <Switch>
-        <Route exact path="/memes">
-          <Home />
-        </Route>
+        <div className="container">
+          <Route exact path="/">
+            <MemeCards />
+          </Route>
+          <Route exact path="/create">
+            <Create />
+          </Route>
+        </div>
       </Switch>
     </Router>
   );

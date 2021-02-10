@@ -9,13 +9,6 @@ const MemeCards = () => {
       {memes.map((meme) => (
         <MemeCard key={meme.id} data={meme} />
       ))}
-      <MemeCard></MemeCard>
-      <MemeCard></MemeCard>
-      <MemeCard></MemeCard>
-
-      <MemeCard></MemeCard>
-      <MemeCard></MemeCard>
-      <MemeCard></MemeCard>
     </div>
   );
 };

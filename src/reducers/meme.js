@@ -3,7 +3,7 @@ function reducer(meme = [], action) {
     case "FETCH_ALL":
       return action.payload;
     case "POST":
-      return meme;
+      return [...meme, action.payload];
     default:
       return meme;
   }

@@ -11,3 +11,12 @@ export const getMemes = () => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const postMeme = (meme) => async (dispatch) => {
+  try {
+    const { data } = await axios.post(url, meme);
+    dispatch({ type: "POST", payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};

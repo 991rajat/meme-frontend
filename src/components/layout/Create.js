@@ -1,12 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+import MemeCard from "./MemeCard";
+import { useDispatch } from "react-redux";
+import { postMeme } from "../../actions/meme";
 
 const Create = (props) => {
+  const [data, setdata] = useState({
+    name: "",
+    caption: "",
+    url: "",
+  });
+  const dispatch = useDispatch();
+
+  const onValueChange = (e) => {
+    setdata({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    dispatch(postMeme(data));
+  };
+
+  const onClear = (e) => {
+    e.preventDefault();
+    setdata({
+      name: "",
+      caption: "",
+      url: "",
+    });
+  };
   const { title, name, caption, url } = props;
   return (
     <div className="card mb-4">
       <div className="card-header text-center">{title}</div>
       <div className="card-body">
-        <form>
+        <form onSubmit={onSubmit}>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">
               Name
@@ -16,6 +43,8 @@ const Create = (props) => {
               name="name"
               className="form-control"
               placeholder="Enter a name"
+              value={data.name}
+              onChange={onValueChange}
             />
           </div>
 
@@ -28,6 +57,8 @@ const Create = (props) => {
               name="caption"
               className="form-control"
               placeholder="Enter a caption"
+              value={data.caption}
+              onChange={onValueChange}
             />
           </div>
 
@@ -40,17 +71,19 @@ const Create = (props) => {
               name="url"
               className="form-control"
               placeholder="Enter a url"
+              value={data.url}
+              onChange={onValueChange}
             />
           </div>
           <div className="container-fluid">
             <div className="row">
               <div className="col-md-6 mb-1">
                 <button
-                  type="button"
+                  onClick={onClear}
                   className="btn btn-danger btn-block"
                   style={{ width: "100%" }}
                 >
-                  Cancel
+                  Clear
                 </button>
               </div>
               <div className="col-md-6 mb-1 pd-0">
