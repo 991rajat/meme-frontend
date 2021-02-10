@@ -6,3 +6,19 @@
   padding: 0;
   font-family: "PT Sans", sans-serif;
 }
+
+.resizing {
+  display: block;
+  width: auto;
+  height: 300px;
+  object-fit: cover;
+}
+
+.edit-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 5px;
+  border-radius: 50%;
+  color: #fff;
+}
