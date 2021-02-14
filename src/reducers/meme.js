@@ -3,13 +3,21 @@ const istate = {
   meme: {},
   error: "",
 };
-
+// Creating the STORE to ACCESS
+// FETCH_ALL  @get
+// POST       @post
+// PATCH      @patch
+// ERROR      Error handler
 function reducer(meme = istate, action) {
   switch (action.type) {
     case "FETCH_ALL":
       return { ...meme, memes: action.payload, error: "" };
     case "POST":
-      return { ...meme, meme: action.payload, error: "" };
+      return {
+        memes: [...meme.memes, action.payload],
+        meme: action.payload,
+        error: "",
+      };
     case "ERROR":
       return { ...meme, error: action.payload };
     case "PATCH":

@@ -66,25 +66,26 @@ const Create = (props) => {
       setTimeout(() => {
         setsubmitted(false);
         document.querySelector(".submit-btn").disabled = false;
+        if (storestate.error === "") {
+          document.querySelector(".submit-btn").disabled = false;
+          setdata({
+            name: "",
+            caption: "",
+            url: "",
+          });
+        }
       }, 2000);
-
-      document.querySelector(".submit-btn").disabled = false;
-      setdata({
-        name: "",
-        caption: "",
-        url: "",
-      });
     } else {
       console.log(ID);
 
-      document.querySelector(".submit-btn").disabled = true;
+      //document.querySelector(".submit-btn").disabled = true;
       setloading(true);
       await dispatch(patchMeme(data, props.location.state.data.id));
-      setloading(false);
       setsubmitted(true);
+      setloading(false);
       setTimeout(() => {
         setsubmitted(false);
-        document.querySelector(".submit-btn").disabled = false;
+        //document.querySelector(".submit-btn").disabled = false;
       }, 2000);
     }
   };

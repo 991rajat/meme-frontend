@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// NavBar
+
 const Header = () => {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-danger mb-3 shadow-sm  rounded">
@@ -41,6 +43,16 @@ const Header = () => {
               >
                 Create a Meme
               </Link>
+            </li>
+            <li className="nav-item">
+              <a href="https://safe-oasis-68429.herokuapp.com/swagger-ui/">
+                <img
+                  src="https://help.apiary.io/images/swagger-logo.png"
+                  width="35px"
+                  height="34px"
+                  className="rounded gol"
+                ></img>
+              </a>
             </li>
           </ul>
         </div>

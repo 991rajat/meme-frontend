@@ -6,15 +6,18 @@ import Create from "./components/layout/Create";
 import MemeCards from "./components/layout/MemeCards";
 import Footer from "./components/layout/Footer";
 import { render } from "@testing-library/react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getMemes } from "./actions/meme";
 import MemeCard from "./components/layout/MemeCard";
 
+// Main App for Project
+
 function App() {
+  const post = useSelector((state) => state.memes.meme);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMemes());
-  }, [dispatch]);
+  }, [dispatch, post]);
 
   return (
     <Router>

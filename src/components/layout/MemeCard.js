@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+//Card Layout
 const MemeCard = (props) => {
   const { name, caption, url } = props.data;
   //console.log(props.data);
