@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Romanesco&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rakkas&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap");
 * {
   box-sizing: 0;
   margin: 0;
@@ -7,10 +9,17 @@
   font-family: "PT Sans", sans-serif;
 }
 
+.navbar-brand {
+  font-family: "Romanesco", cursive;
+  font-family: "Rakkas", cursive;
+  /* font-family: "Aguafina Script", cursive; */
+  font-size: 2.2vw;
+}
+
 .resizing {
   display: block;
   width: auto;
-  height: 300px;
+  height: 350px;
   object-fit: fill;
 }
 
@@ -21,4 +30,19 @@
   margin: 5px;
   border-radius: 50%;
   color: #fff;
+}
+
+.centre-form {
+  margin: auto;
+  width: 70%;
+}
+
+.topnav {
+  margin-top: -10px;
+  background-color: #333;
+  overflow: hidden;
+}
+
+.footer {
+  margin-top: 25vh;
 }

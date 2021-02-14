@@ -1,23 +1,30 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MemeCard = (props) => {
   const { name, caption, url } = props.data;
-  console.log(props);
+  //console.log(props.data);
   return (
-    <div className="col-md-4 mb-3">
-      <div className="card h-100">
-        <img
-          src={url}
-          className="card-img-top resizing  "
-          alt="../../../../public/logo512.png"
-        />
+    <div className="col-md-4 col-sm-6 mb-3 m-0 p-1 ">
+      <div className="card shadow rounded p-0 m-0 h-100">
+        <img src={url} className="card-img-top resizing " alt="" />
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
           <p className="card-text">
             {caption}{" "}
-            <button className="btn bg-danger edit-btn">
-              <i className="fas fa-pencil-alt "></i>
-            </button>
+            <Link
+              to={{
+                pathname: "/create",
+                state: { method: "UPDATE", data: props.data },
+              }}
+            >
+              <button
+                className="btn edit-btn"
+                style={{ backgroundColor: "#dc4146" }}
+              >
+                <i className="fas fa-pencil-alt "></i>
+              </button>
+            </Link>
           </p>
         </div>
       </div>
@@ -27,9 +34,9 @@ const MemeCard = (props) => {
 
 MemeCard.defaultProps = {
   data: {
-    name: "C",
-    caption: "u",
-    url: "asd",
+    name: "Name",
+    caption: "Caption",
+    url: "https://miro.medium.com/max/880/0*H3jZONKqRuAAeHnG.jpg",
   },
 };
 

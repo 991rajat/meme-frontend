@@ -3,10 +3,15 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-danger mb-3 ">
+    <nav className="navbar navbar-expand-sm navbar-dark bg-danger mb-3 shadow-sm  rounded">
       <div className="container">
+        <img
+          src="https://i.imgflip.com/1grqn3.gif"
+          width="80px"
+          height="60px"
+        />
         <Link to="/" className="navbar-brand">
-          MemeshiMemes
+          &nbsp;MemesheMemes
         </Link>
         <button
           className="navbar-toggler"
@@ -23,11 +28,17 @@ const Header = () => {
           <ul className="nav navbar-nav ms-auto">
             <li className="nav-item">
               <Link to="/" className="nav-link active">
-                <span classNameName="links">Home</span>
+                <span className="links">Home</span>
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/create" className="nav-link active">
+              <Link
+                to={{
+                  pathname: "/create",
+                  state: { method: "CREATE", data: {} },
+                }}
+                className="nav-link active"
+              >
                 Create a Meme
               </Link>
             </li>
